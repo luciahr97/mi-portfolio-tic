@@ -4,117 +4,449 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi portfolio de TIC</title>
+
+    <title>Mi Portfolio | TIC</title>
+
+    <meta name="description" content="Portfolio académico de TIC de 1º de Bachillerato">
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* CONFIGURACIÓN GENERAL */
+
+        * {
             margin: 0;
-            background-color: #f3f4f8;
-            color: #252b40;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
-        header {
-            background-color: #263b80;
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f5f7fb;
+            color: #263248;
+            line-height: 1.7;
         }
+
+        /* MENÚ */
 
         nav {
-            background-color: #172554;
-            padding: 15px;
-            text-align: center;
+            background: #142541;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            color: white;
+            font-size: 21px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
         }
 
         nav a {
-            color: white;
+            color: #e5edfa;
             text-decoration: none;
-            margin: 12px;
+            font-size: 14px;
+            transition: 0.3s;
         }
+
+        nav a:hover {
+            color: #83baff;
+        }
+
+        /* PORTADA */
+
+        .hero {
+            min-height: 440px;
+            background: linear-gradient(135deg, #142541, #28558a);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .hero .small {
+            color: #a9d0ff;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 60px);
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 600px;
+            color: #e0eafa;
+            font-size: 17px;
+        }
+
+        .hero a {
+            display: inline-block;
+            margin-top: 30px;
+            background: white;
+            color: #1c3d69;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .hero a:hover {
+            background: #b9d9ff;
+            transform: translateY(-3px);
+        }
+
+        /* SECCIONES */
 
         section {
-            max-width: 850px;
-            margin: 30px auto;
-            padding: 25px;
+            max-width: 1050px;
+            margin: auto;
+            padding: 75px 25px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            font-size: 30px;
+            color: #172e50;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #718096;
+        }
+
+        /* SOBRE MÍ */
+
+        .about {
             background: white;
-            border-radius: 12px;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 5px 25px rgba(30, 50, 80, 0.06);
+            text-align: center;
         }
 
-        .trabajo {
-            background: #eef1ff;
-            padding: 15px;
+        .about p {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        /* TRABAJOS */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 27px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(30, 50, 80, 0.06);
+            transition: 0.3s;
+            border: 1px solid #edf1f7;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(30, 50, 80, 0.12);
+        }
+
+        .number {
+            color: #3778c5;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .card h3 {
+            color: #1d3558;
             margin: 12px 0;
-            border-radius: 8px;
         }
 
-        a {
-            color: #263b80;
+        .card p {
+            color: #718096;
+            font-size: 14px;
+            margin-bottom: 18px;
         }
+
+        .card a {
+            display: inline-block;
+            background: #eaf2fc;
+            color: #24558e;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 7px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .card a:hover {
+            background: #d5e6fa;
+        }
+
+        /* PROYECTOS DESTACADOS */
+
+        .featured {
+            background: #eaf1fa;
+            max-width: none;
+            padding: 65px 8%;
+        }
+
+        .featured-content {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .featured-box {
+            background: white;
+            padding: 30px;
+            border-radius: 14px;
+            margin-top: 20px;
+        }
+
+        /* PIE DE PÁGINA */
 
         footer {
+            background: #142541;
+            color: #dce7f5;
             text-align: center;
-            padding: 20px;
-            background: #263b80;
-            color: white;
+            padding: 28px 15px;
+            font-size: 13px;
         }
+
+        footer p {
+            margin: 5px;
+        }
+
+        /* MÓVILES */
+
+        @media (max-width: 650px) {
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav ul {
+                gap: 13px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                min-height: 380px;
+            }
+
+            section {
+                padding: 50px 18px;
+            }
+
+            .about {
+                padding: 25px;
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Mi portfolio de TIC</h1>
-        <p>Bienvenidos a mi espacio de trabajos digitales</p>
-    </header>
+    <!-- MENÚ DE NAVEGACIÓN -->
 
     <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#trabajos">Mis trabajos</a>
+        <div class="logo">MI PORTFOLIO.</div>
+
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#trabajos">Trabajos</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+        </ul>
     </nav>
 
-    <section id="inicio">
-        <h2>¡Bienvenidos!</h2>
+
+    <!-- PORTADA -->
+
+    <header class="hero" id="inicio">
+
+        <div class="small">Portfolio académico · 2026/2027</div>
+
+        <h1>Mi espacio digital</h1>
+
         <p>
-            Esta página web recoge las actividades,
-            prácticas y proyectos que realizaré
-            durante la asignatura de TIC.
+            Bienvenidos a mi portfolio de Tecnologías
+            de la Información y la Comunicación.
+            Un espacio donde comparto mis actividades,
+            aprendizajes y proyectos.
         </p>
-    </section>
+
+        <a href="#trabajos">Descubrir mis trabajos</a>
+
+    </header>
+
+
+    <!-- SOBRE MÍ -->
 
     <section id="sobre-mi">
-        <h2>Sobre mí</h2>
-        <p>
-            Soy estudiante y he creado esta página
-            como portfolio digital para la asignatura
-            de Tecnologías de la Información y la Comunicación.
-        </p>
+
+        <div class="section-title">
+            <h2>Sobre mí</h2>
+            <p>Un poco sobre este espacio personal</p>
+        </div>
+
+        <div class="about">
+
+            <p>
+                ¡Hola! Soy estudiante de 1.º de Bachillerato
+                y he creado este portfolio como parte de
+                la asignatura de TIC.
+
+                En esta página iré recopilando las actividades,
+                prácticas y proyectos que realice durante
+                el curso, mostrando mis avances y todo lo
+                que voy aprendiendo sobre tecnología
+                y herramientas digitales.
+            </p>
+
+        </div>
+
     </section>
+
+
+    <!-- TRABAJOS -->
 
     <section id="trabajos">
-        <h2>Mis trabajos de TIC</h2>
 
-        <div class="trabajo">
-            <h3>Trabajo 1: Primera actividad</h3>
-            <p>Descripción de mi primera actividad.</p>
-            <a href="trabajos/trabajo1.pdf" target="_blank">
-                Ver trabajo
-            </a>
+        <div class="section-title">
+            <h2>Mis trabajos</h2>
+            <p>Actividades y prácticas realizadas en clase</p>
         </div>
 
-        <div class="trabajo">
-            <h3>Trabajo 2: Segunda actividad</h3>
-            <p>Descripción de mi segunda actividad.</p>
-            <a href="trabajos/trabajo2.pdf" target="_blank">
-                Ver trabajo
-            </a>
+        <div class="projects">
+
+            <div class="card">
+                <div class="number">TRABAJO 01</div>
+                <h3>Primera actividad</h3>
+                <p>
+                    Aquí puedes escribir una breve descripción
+                    de tu primera actividad de TIC.
+                </p>
+                <a href="trabajos/trabajo1.pdf" target="_blank">
+                    Ver actividad →
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="number">TRABAJO 02</div>
+                <h3>Segunda actividad</h3>
+                <p>
+                    Añade aquí información sobre tu segundo
+                    trabajo o práctica.
+                </p>
+                <a href="trabajos/trabajo2.pdf" target="_blank">
+                    Ver actividad →
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="number">TRABAJO 03</div>
+                <h3>Tercera actividad</h3>
+                <p>
+                    Describe brevemente el contenido
+                    de esta actividad.
+                </p>
+                <a href="trabajos/trabajo3.pdf" target="_blank">
+                    Ver actividad →
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="number">TRABAJO 04</div>
+                <h3>Cuarta actividad</h3>
+                <p>
+                    Este espacio está preparado para
+                    tus próximos trabajos.
+                </p>
+                <a href="trabajos/trabajo4.pdf" target="_blank">
+                    Ver actividad →
+                </a>
+            </div>
+
         </div>
 
     </section>
 
+
+    <!-- PROYECTOS DESTACADOS -->
+
+    <div class="featured" id="proyectos">
+
+        <div class="featured-content">
+
+            <div class="section-title">
+                <h2>Proyectos destacados</h2>
+                <p>Mis proyectos más importantes del curso</p>
+            </div>
+
+            <div class="featured-box">
+
+                <h3>Proyecto principal de TIC</h3>
+
+                <p>
+                    En este apartado presentaré los proyectos
+                    más importantes que realice durante
+                    el curso académico.
+                </p>
+
+                <p style="margin-top:15px;">
+                    <a href="trabajos/proyecto.pdf"
+                       target="_blank">
+                        Consultar proyecto →
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PIE DE PÁGINA -->
+
     <footer>
-        <p>Portfolio digital de TIC - Curso 2026/2027</p>
+
+        <p><strong>MI PORTFOLIO DE TIC</strong></p>
+
+        <p>1.º de Bachillerato · Curso 2026/2027</p>
+
+        <p>© 2026 - Portfolio académico</p>
+
     </footer>
 
 </body>
