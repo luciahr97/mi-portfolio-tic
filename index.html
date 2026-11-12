@@ -205,7 +205,60 @@
         .card a:hover {
             background: #d5e6fa;
         }
+/* VENTANA DE ACTIVIDAD */
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 200;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 25, 50, 0.65);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 18px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+}
+
+.modal-content .emoji {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.modal-content h2 {
+    color: #1d3558;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    color: #718096;
+    margin-bottom: 20px;
+}
+
+.modal-content button {
+    background: #263b80;
+    color: white;
+    border: none;
+    padding: 11px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.modal-content button:hover {
+    background: #3778c5;
+}
         /* PROYECTOS DESTACADOS */
 
         .featured {
@@ -356,9 +409,9 @@
                     Aquí puedes escribir una breve descripción
                     de tu primera actividad de TIC.
                 </p>
-                <a href="trabajos/trabajo1.pdf" target="_blank">
-                    Ver actividad →
-                </a>
+               <a href="#" onclick="mostrarMensaje(event)">
+    Ver actividad →
+</a>
             </div>
 
             <div class="card">
@@ -368,9 +421,9 @@
                     Añade aquí información sobre tu segundo
                     trabajo o práctica.
                 </p>
-                <a href="trabajos/trabajo2.pdf" target="_blank">
-                    Ver actividad →
-                </a>
+               <a href="#" onclick="mostrarMensaje(event)">
+    Ver actividad →
+</a>
             </div>
 
             <div class="card">
@@ -380,9 +433,9 @@
                     Describe brevemente el contenido
                     de esta actividad.
                 </p>
-                <a href="trabajos/trabajo3.pdf" target="_blank">
-                    Ver actividad →
-                </a>
+               <a href="#" onclick="mostrarMensaje(event)">
+    Ver actividad →
+</a>
             </div>
 
             <div class="card">
@@ -392,9 +445,9 @@
                     Este espacio está preparado para
                     tus próximos trabajos.
                 </p>
-                <a href="trabajos/trabajo4.pdf" target="_blank">
-                    Ver actividad →
-                </a>
+                <a href="#" onclick="mostrarMensaje(event)">
+    Ver actividad →
+</a>
             </div>
 
         </div>
@@ -448,6 +501,46 @@
         <p>© 2026 - Portfolio académico</p>
 
     </footer>
+<!-- VENTANA DE ACTIVIDAD -->
 
+<div class="modal" id="mensajeActividad">
+
+    <div class="modal-content">
+
+        <div class="emoji">😢</div>
+
+        <h2>¡Aún no hay ninguna actividad!</h2>
+
+        <p>
+            Próximamente podrás consultar
+            este trabajo. ¡Vuelve pronto!
+        </p>
+
+        <button onclick="cerrarMensaje()">
+            Entendido
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+    function mostrarMensaje(event) {
+        event.preventDefault();
+
+        document.getElementById("mensajeActividad")
+            .style.display = "flex";
+    }
+
+    function cerrarMensaje() {
+        document.getElementById("mensajeActividad")
+            .style.display = "none";
+    }
+
+</script>
 </body>
 </html>
