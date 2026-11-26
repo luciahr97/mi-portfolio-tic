@@ -2,544 +2,651 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Portfolio | TIC</title>
 
-    <title>Mi Portfolio | TIC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
-    <meta name="description" content="Portfolio académico de TIC de 1º de Bachillerato">
+  <style>
+    :root {
+      --pink: #e879a5;
+      --pink-dark: #c94f83;
+      --pink-light: #fce8f0;
+      --pink-pale: #fff7fa;
+      --purple: #9675b9;
+      --dark: #332b38;
+      --text: #625965;
+      --white: #ffffff;
+      --shadow: 0 12px 35px rgba(201, 79, 131, 0.10);
+    }
 
-    <style>
-        /* CONFIGURACIÓN GENERAL */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--pink-pale);
+      color: var(--dark);
+      line-height: 1.7;
+    }
 
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: #f5f7fb;
-            color: #263248;
-            line-height: 1.7;
-        }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        /* MENÚ */
+    /* MENÚ DE NAVEGACIÓN */
 
-        nav {
-            background: #142541;
-            padding: 18px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 247, 250, 0.92);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid #f5dce7;
+      padding: 16px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .logo {
-            color: white;
-            font-size: 21px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--pink-dark);
+    }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
 
-        nav a {
-            color: #e5edfa;
-            text-decoration: none;
-            font-size: 14px;
-            transition: 0.3s;
-        }
+    .nav-links a {
+      transition: color 0.3s;
+    }
 
-        nav a:hover {
-            color: #83baff;
-        }
+    .nav-links a:hover {
+      color: var(--pink-dark);
+    }
 
-        /* PORTADA */
+    /* PORTADA */
 
-        .hero {
-            min-height: 440px;
-            background: linear-gradient(135deg, #142541, #28558a);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 70px 20px;
-        }
+    .hero {
+      min-height: 85vh;
+      padding: 100px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      background:
+        radial-gradient(circle at 85% 20%, #f8d8e6 0, transparent 30%),
+        linear-gradient(135deg, #fff7fa, #fce8f0);
+    }
 
-        .hero .small {
-            color: #a9d0ff;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-size: 13px;
-            margin-bottom: 15px;
-        }
+    .hero-content {
+      max-width: 650px;
+      animation: aparecer 1s ease;
+    }
 
-        .hero h1 {
-            font-size: clamp(36px, 6vw, 60px);
-            margin-bottom: 15px;
-        }
+    .etiqueta {
+      display: inline-block;
+      background: white;
+      color: var(--pink-dark);
+      border: 1px solid #f2cada;
+      padding: 8px 17px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
 
-        .hero p {
-            max-width: 600px;
-            color: #e0eafa;
-            font-size: 17px;
-        }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 1.1;
+      margin-bottom: 25px;
+    }
 
-        .hero a {
-            display: inline-block;
-            margin-top: 30px;
-            background: white;
-            color: #1c3d69;
-            text-decoration: none;
-            padding: 12px 28px;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+    .hero h1 span {
+      color: var(--pink-dark);
+    }
 
-        .hero a:hover {
-            background: #b9d9ff;
-            transform: translateY(-3px);
-        }
+    .hero p {
+      color: var(--text);
+      font-size: 1.1rem;
+      max-width: 520px;
+      margin-bottom: 32px;
+    }
 
-        /* SECCIONES */
+    .boton {
+      display: inline-block;
+      background: var(--pink-dark);
+      color: white;
+      padding: 14px 25px;
+      border-radius: 30px;
+      font-weight: 700;
+      transition: 0.3s;
+      box-shadow: 0 8px 20px rgba(201, 79, 131, 0.2);
+    }
 
-        section {
-            max-width: 1050px;
-            margin: auto;
-            padding: 75px 25px;
-        }
+    .boton:hover {
+      transform: translateY(-4px);
+      background: #ae3d70;
+    }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 35px;
-        }
+    .hero-decoration {
+      width: 270px;
+      height: 270px;
+      min-width: 220px;
+      border-radius: 45% 55% 60% 40%;
+      background: linear-gradient(135deg, #e879a5, #b995d5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 6rem;
+      box-shadow: 0 25px 60px rgba(201, 79, 131, 0.22);
+      animation: flotar 4s ease-in-out infinite;
+    }
 
-        .section-title h2 {
-            font-size: 30px;
-            color: #172e50;
-            margin-bottom: 8px;
-        }
+    /* SECCIONES GENERALES */
 
-        .section-title p {
-            color: #718096;
-        }
+    section {
+      padding: 90px 8%;
+      scroll-margin-top: 75px;
+    }
 
-        /* SOBRE MÍ */
+    .section-heading {
+      text-align: center;
+      margin-bottom: 50px;
+    }
 
-        .about {
-            background: white;
-            border-radius: 15px;
-            padding: 35px;
-            box-shadow: 0 5px 25px rgba(30, 50, 80, 0.06);
-            text-align: center;
-        }
+    .section-heading small {
+      color: var(--pink-dark);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
 
-        .about p {
-            max-width: 750px;
-            margin: auto;
-        }
+    .section-heading h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3rem);
+      margin-top: 8px;
+    }
 
-        /* TRABAJOS */
+    .section-heading p {
+      color: var(--text);
+      margin-top: 10px;
+    }
 
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 22px;
-        }
+    /* SOBRE MÍ */
 
-        .card {
-            background: white;
-            padding: 27px;
-            border-radius: 14px;
-            box-shadow: 0 5px 20px rgba(30, 50, 80, 0.06);
-            transition: 0.3s;
-            border: 1px solid #edf1f7;
-        }
+    .about {
+      background: white;
+    }
 
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 25px rgba(30, 50, 80, 0.12);
-        }
+    .about-content {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
 
-        .number {
-            color: #3778c5;
-            font-size: 13px;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
+    .about-content strong {
+      color: var(--pink-dark);
+    }
 
-        .card h3 {
-            color: #1d3558;
-            margin: 12px 0;
-        }
+    /* ACTIVIDADES Y PROYECTOS */
 
-        .card p {
-            color: #718096;
-            font-size: 14px;
-            margin-bottom: 18px;
-        }
+    .projects {
+      background: var(--pink-pale);
+    }
 
-        .card a {
-            display: inline-block;
-            background: #eaf2fc;
-            color: #24558e;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 7px;
-            font-size: 13px;
-            font-weight: bold;
-        }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: auto;
+    }
 
-        .card a:hover {
-            background: #d5e6fa;
-        }
-/* VENTANA DE ACTIVIDAD */
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 22px;
+      border: 1px solid #f5dce7;
+      box-shadow: var(--shadow);
+      transition: 0.3s ease;
+    }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 200;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(10, 25, 50, 0.65);
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(201, 79, 131, 0.16);
+    }
 
-.modal-content {
-    background: white;
-    padding: 40px 30px;
-    border-radius: 18px;
-    text-align: center;
-    max-width: 400px;
-    width: 100%;
-    box-shadow: 0 10px 35px rgba(0,0,0,0.2);
-}
+    .card-icon {
+      width: 55px;
+      height: 55px;
+      border-radius: 16px;
+      background: var(--pink-light);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.7rem;
+      margin-bottom: 20px;
+    }
 
-.modal-content .emoji {
-    font-size: 55px;
-    margin-bottom: 15px;
-}
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
 
-.modal-content h2 {
-    color: #1d3558;
-    margin-bottom: 10px;
-}
+    .card p {
+      color: var(--text);
+      margin-bottom: 22px;
+      font-size: 0.95rem;
+    }
 
-.modal-content p {
-    color: #718096;
-    margin-bottom: 20px;
-}
+    .card a {
+      display: inline-block;
+      color: var(--pink-dark);
+      font-weight: 800;
+      font-size: 0.9rem;
+      border-bottom: 2px solid #f2cada;
+      padding-bottom: 4px;
+      transition: 0.3s;
+    }
 
-.modal-content button {
-    background: #263b80;
-    color: white;
-    border: none;
-    padding: 11px 25px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-}
+    .card a:hover {
+      color: var(--purple);
+      border-color: var(--purple);
+    }
 
-.modal-content button:hover {
-    background: #3778c5;
-}
-        /* PROYECTOS DESTACADOS */
+    /* PROYECTO DESTACADO */
 
-        .featured {
-            background: #eaf1fa;
-            max-width: none;
-            padding: 65px 8%;
-        }
+    .featured {
+      background: white;
+    }
 
-        .featured-content {
-            max-width: 1000px;
-            margin: auto;
-        }
+    .featured-card {
+      max-width: 850px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 25px;
+      background: linear-gradient(135deg, #fce8f0, #f0e9f8);
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      box-shadow: var(--shadow);
+      transition: 0.3s;
+    }
 
-        .featured-box {
-            background: white;
-            padding: 30px;
-            border-radius: 14px;
-            margin-top: 20px;
-        }
+    .featured-card:hover {
+      transform: translateY(-5px);
+    }
 
-        /* PIE DE PÁGINA */
+    .featured-icon {
+      font-size: 4rem;
+      background: white;
+      width: 110px;
+      height: 110px;
+      min-width: 110px;
+      border-radius: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        footer {
-            background: #142541;
-            color: #dce7f5;
-            text-align: center;
-            padding: 28px 15px;
-            font-size: 13px;
-        }
+    .featured-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+    }
 
-        footer p {
-            margin: 5px;
-        }
+    .featured-card p {
+      color: var(--text);
+      margin-bottom: 18px;
+    }
 
-        /* MÓVILES */
+    .featured-card a {
+      color: var(--pink-dark);
+      font-weight: 800;
+    }
 
-        @media (max-width: 650px) {
-            nav {
-                flex-direction: column;
-                gap: 12px;
-            }
+    /* VENTANA DE ACTIVIDAD VACÍA */
 
-            nav ul {
-                gap: 13px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(45, 32, 43, 0.55);
+      backdrop-filter: blur(5px);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
 
-            nav a {
-                font-size: 12px;
-            }
+    .modal-content {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 25px;
+      text-align: center;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      animation: aparecer 0.3s ease;
+    }
 
-            .hero {
-                min-height: 380px;
-            }
+    .modal-content .emoji {
+      font-size: 4rem;
+      margin-bottom: 15px;
+    }
 
-            section {
-                padding: 50px 18px;
-            }
+    .modal-content h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--pink-dark);
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
 
-            .about {
-                padding: 25px;
-            }
-        }
+    .modal-content p {
+      color: var(--text);
+      margin-bottom: 25px;
+    }
 
-    </style>
+    .modal-content button {
+      border: none;
+      background: var(--pink-dark);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .modal-content button:hover {
+      background: var(--purple);
+      transform: translateY(-2px);
+    }
+
+    /* PIE DE PÁGINA */
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    footer p {
+      color: #e5dce5;
+      font-size: 0.9rem;
+    }
+
+    footer span {
+      color: #f3a7c5;
+    }
+
+    /* ANIMACIONES */
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes flotar {
+      0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+      }
+      50% {
+        transform: translateY(-15px) rotate(5deg);
+      }
+    }
+
+    /* ADAPTACIÓN A MÓVILES */
+
+    @media (max-width: 700px) {
+      nav {
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 0.8rem;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 75px 7%;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-decoration {
+        width: 190px;
+        height: 190px;
+        min-width: 190px;
+        font-size: 4rem;
+      }
+
+      section {
+        padding: 65px 7%;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 22px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- MENÚ DE NAVEGACIÓN -->
+  <!-- MENÚ -->
+  <nav>
+    <a href="#inicio" class="logo">Mi Portfolio.</a>
 
-    <nav>
-        <div class="logo">MI PORTFOLIO.</div>
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#actividades">Actividades</a></li>
+      <li><a href="#destacados">Destacados</a></li>
+    </ul>
+  </nav>
 
-        <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#sobre-mi">Sobre mí</a></li>
-            <li><a href="#trabajos">Trabajos</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-        </ul>
-    </nav>
+  <!-- PORTADA -->
+  <header class="hero" id="inicio">
+    <div class="hero-content">
+      <span class="etiqueta">✦ PORTFOLIO DIGITAL · TIC</span>
 
+      <h1>Hola, soy <span>Fátima :)</span>.</h1>
 
-    <!-- PORTADA -->
+      <p>
+        Bienvenido/a a mi espacio digital. Aquí encontrarás
+        mis actividades, proyectos y todo lo que voy aprendiendo
+        en la asignatura de Tecnologías de la Información y la Comunicación.
+      </p>
 
-    <header class="hero" id="inicio">
-
-        <div class="small">Portfolio académico · 2026/2027</div>
-
-        <h1>Mi espacio digital</h1>
-
-        <p>
-            Bienvenidos a mi portfolio de Tecnologías
-            de la Información y la Comunicación.
-            Un espacio donde comparto mis actividades,
-            aprendizajes y proyectos.
-        </p>
-
-        <a href="#trabajos">Descubrir mis trabajos</a>
-
-    </header>
-
-
-    <!-- SOBRE MÍ -->
-
-    <section id="sobre-mi">
-
-        <div class="section-title">
-            <h2>Sobre mí</h2>
-            <p>Un poco sobre este espacio personal</p>
-        </div>
-
-        <div class="about">
-
-            <p>
-                ¡Hola! Soy estudiante de 1.º de Bachillerato
-                y he creado este portfolio como parte de
-                la asignatura de TIC.
-
-                En esta página iré recopilando las actividades,
-                prácticas y proyectos que realice durante
-                el curso, mostrando mis avances y todo lo
-                que voy aprendiendo sobre tecnología
-                y herramientas digitales.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- TRABAJOS -->
-
-    <section id="trabajos">
-
-        <div class="section-title">
-            <h2>Mis trabajos</h2>
-            <p>Actividades y prácticas realizadas en clase</p>
-        </div>
-
-        <div class="projects">
-
-            <div class="card">
-                <div class="number">TRABAJO 01</div>
-                <h3>Primera actividad</h3>
-                <p>
-                    Aquí puedes escribir una breve descripción
-                    de tu primera actividad de TIC.
-                </p>
-               <a href="#" onclick="mostrarMensaje(event)">
-    Ver actividad →
-</a>
-            </div>
-
-            <div class="card">
-                <div class="number">TRABAJO 02</div>
-                <h3>Segunda actividad</h3>
-                <p>
-                    Añade aquí información sobre tu segundo
-                    trabajo o práctica.
-                </p>
-               <a href="#" onclick="mostrarMensaje(event)">
-    Ver actividad →
-</a>
-            </div>
-
-            <div class="card">
-                <div class="number">TRABAJO 03</div>
-                <h3>Tercera actividad</h3>
-                <p>
-                    Describe brevemente el contenido
-                    de esta actividad.
-                </p>
-               <a href="#" onclick="mostrarMensaje(event)">
-    Ver actividad →
-</a>
-            </div>
-
-            <div class="card">
-                <div class="number">TRABAJO 04</div>
-                <h3>Cuarta actividad</h3>
-                <p>
-                    Este espacio está preparado para
-                    tus próximos trabajos.
-                </p>
-                <a href="#" onclick="mostrarMensaje(event)">
-    Ver actividad →
-</a>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- PROYECTOS DESTACADOS -->
-
-    <div class="featured" id="proyectos">
-
-        <div class="featured-content">
-
-            <div class="section-title">
-                <h2>Proyectos destacados</h2>
-                <p>Mis proyectos más importantes del curso</p>
-            </div>
-
-            <div class="featured-box">
-
-                <h3>Proyecto principal de TIC</h3>
-
-                <p>
-                    En este apartado presentaré los proyectos
-                    más importantes que realice durante
-                    el curso académico.
-                </p>
-
-                <p style="margin-top:15px;">
-                  <a href="#" onclick="mostrarMensaje(event)">
-  Ver actividad →
-</a>
-                </p>
-
-            </div>
-
-        </div>
-
+      <a href="#actividades" class="boton">
+        Descubrir mis trabajos →
+      </a>
     </div>
 
+    <div class="hero-decoration">
+      ✿
+    </div>
+  </header>
 
-    <!-- PIE DE PÁGINA -->
+  <!-- SOBRE MÍ -->
+  <section class="about" id="sobre-mi">
+    <div class="section-heading">
+      <small>Un poquito sobre mí</small>
+      <h2>Sobre mí</h2>
+    </div>
 
-    <footer>
+    <div class="about-content">
+      <p>
+        ¡Hola! Soy estudiante de Bachillerato y este es mi portfolio
+        de la asignatura de <strong>TIC</strong>. He creado esta página
+        para mostrar mis trabajos, compartir lo que aprendo y enseñar
+        mi evolución durante el curso.
+      </p>
+    </div>
+  </section>
 
-        <p><strong>MI PORTFOLIO DE TIC</strong></p>
+  <!-- ACTIVIDADES -->
+  <section class="projects" id="actividades">
+    <div class="section-heading">
+      <small>Mi aprendizaje</small>
+      <h2>Mis actividades</h2>
+      <p>Un recorrido por los trabajos que voy realizando durante el curso.</p>
+    </div>
 
-        <p>1.º de Bachillerato · Curso 2026/2027</p>
+    <div class="projects-grid">
 
-        <p>© 2026 - Portfolio académico</p>
+      <article class="card">
+        <div class="card-icon">💻</div>
+        <h3>Actividad 1</h3>
+        <p>Descripción breve de la primera actividad realizada en TIC.</p>
+        <a href="#" onclick="mostrarMensaje(event)">Ver actividad →</a>
+      </article>
 
-    </footer>
-<!-- VENTANA DE ACTIVIDAD -->
+      <article class="card">
+        <div class="card-icon">🎨</div>
+        <h3>Actividad 2</h3>
+        <p>Descripción breve de la segunda actividad realizada en TIC.</p>
+        <a href="#" onclick="mostrarMensaje(event)">Ver actividad →</a>
+      </article>
 
-<div class="modal" id="mensajeActividad">
+      <article class="card">
+        <div class="card-icon">🌐</div>
+        <h3>Actividad 3</h3>
+        <p>Descripción breve de la tercera actividad realizada en TIC.</p>
+        <a href="#" onclick="mostrarMensaje(event)">Ver actividad →</a>
+      </article>
 
+      <article class="card">
+        <div class="card-icon">📱</div>
+        <h3>Actividad 4</h3>
+        <p>Descripción breve de la cuarta actividad realizada en TIC.</p>
+        <a href="#" onclick="mostrarMensaje(event)">Ver actividad →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- PROYECTOS DESTACADOS -->
+  <section class="featured" id="destacados">
+    <div class="section-heading">
+      <small>Mis trabajos favoritos</small>
+      <h2>Proyectos destacados</h2>
+      <p>Una selección de proyectos importantes de mi aprendizaje.</p>
+    </div>
+
+    <div class="featured-card">
+      <div class="featured-icon">⭐</div>
+
+      <div>
+        <h3>Mi proyecto destacado</h3>
+        <p>
+          Aquí puedes añadir una pequeña explicación sobre
+          tu proyecto más importante o el trabajo del que
+          te sientas más orgulloso/a.
+        </p>
+
+        <a href="#" onclick="mostrarMensaje(event)">
+          Ver actividad →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENTANA EMERGENTE -->
+  <div class="modal" id="mensajeActividad" role="dialog"
+       aria-modal="true" aria-labelledby="tituloModal">
     <div class="modal-content">
+      <div class="emoji">😢</div>
 
-        <div class="emoji">😢</div>
+      <h2 id="tituloModal">¡Aún no hay ninguna actividad!</h2>
 
-        <h2>¡Aún no hay ninguna actividad!</h2>
+      <p>
+        Próximamente podrás consultar este trabajo.
+        ¡Vuelve pronto!
+      </p>
 
-        <p>
-            Próximamente podrás consultar
-            este trabajo. ¡Vuelve pronto!
-        </p>
-
-        <button onclick="cerrarMensaje()">
-            Entendido
-        </button>
-
+      <button onclick="cerrarMensaje()">Entendido</button>
     </div>
+  </div>
 
-</div>
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p>Hecho con <span>♥</span> · Mi Portfolio de TIC</p>
+    <p>1.º de Bachillerato · Curso 2026-2027</p>
+  </footer>
 
-
-<!-- JAVASCRIPT -->
-
-<script>
-
+  <!-- JAVASCRIPT -->
+  <script>
     function mostrarMensaje(event) {
-        event.preventDefault();
-
-        document.getElementById("mensajeActividad")
-            .style.display = "flex";
+      event.preventDefault();
+      document.getElementById("mensajeActividad").style.display = "flex";
     }
 
     function cerrarMensaje() {
-        document.getElementById("mensajeActividad")
-            .style.display = "none";
+      document.getElementById("mensajeActividad").style.display = "none";
     }
 
-</script>
+    // Cerrar la ventana al hacer clic fuera del mensaje
+    document.getElementById("mensajeActividad").addEventListener("click", function(event) {
+      if (event.target === this) {
+        cerrarMensaje();
+      }
+    });
+
+    // Cerrar la ventana al pulsar Escape
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        cerrarMensaje();
+      }
+    });
+  </script>
+
 </body>
 </html>
